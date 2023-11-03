@@ -9,7 +9,6 @@ export interface PostProps {
 }
 
 async function addMember(formData: FormData) {
-  "use server";
   //const addnew = await member_AddNew("firstName", "lastName");
 }
 
