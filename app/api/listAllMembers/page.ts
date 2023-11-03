@@ -50,16 +50,16 @@ export interface PostProps {
 //   //res.status(200).json({ message: "Hello from Next.js!" });
 // };
 
-// export default handler;
+// // export default handler;
 
-const DATA_SOURCE_URL = "https://jsonplaceholder.typicode.com/todos";
+// const DATA_SOURCE_URL = "https://jsonplaceholder.typicode.com/todos";
 
-const API_KEY: string = process.env.DATA_API_KEY as string;
+// const API_KEY: string = process.env.DATA_API_KEY as string;
 
-export default async function GET() {
-  const res = await fetch(DATA_SOURCE_URL);
+// export default async function GET() {
+//   const res = await fetch(DATA_SOURCE_URL);
 
-  const todos = await res.json();
+//   const todos = await res.json();
 
-  return NextResponse.json(todos);
-}
+//   return NextResponse.json(todos);
+// }
