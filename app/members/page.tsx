@@ -1,15 +1,10 @@
 import React from "react";
 import { fetchAllMembers } from "../utils/members-management";
 
-
 export interface PostProps {
   ID: number;
   StaffFName: string | null;
   StaffLName: string | null;
-}
-
-async function addMember(formData: FormData) {
-  //const addnew = await member_AddNew("firstName", "lastName");
 }
 
 export default async function page() {
