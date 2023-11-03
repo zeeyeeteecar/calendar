@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tAdmin {
+  ID           Int       @id @default(autoincrement())
+  StaffCode    String?   @db.VarChar(255)
+  StaffFName   String?   @db.VarChar(255)
+  StaffLName   String?   @db.VarChar(255)
+  Login        String?   @db.VarChar(50)
+  Password     String?   @db.VarChar(50)
+  UserLevel    String?   @db.VarChar(1)
+  UserType     String?   @db.VarChar(2)
+  UserActivate String?   @db.VarChar(20)
+  UserDate     DateTime? @db.DateTime(0)
+  BoardStaff   String?   @db.VarChar(50)
+  MemberID     String?   @db.VarChar(10)
+}
+
+model tEvents {
+  Event_ID       Int       @id @default(autoincrement())
+  Date_Added     DateTime? @db.DateTime(0)
+  Start_Date     DateTime? @db.Date
+  End_Date       DateTime? @db.DateTime(0)
+  Start_Time     DateTime? @db.Time(0)
+  End_Time       DateTime? @db.Time(0)
+  Event_Title    String?   @db.VarChar(200)
+  Event_Fee      Float?
+  Event_Details  String?   @db.MediumText
+  Activity_Room  String?   @db.VarChar(5)
+  Board_Room     String?   @db.VarChar(255)
+  Resource_Room  String?   @db.VarChar(255)
+  Computer_Lab   String?   @db.VarChar(255)
+  SC_Room        String?   @db.VarChar(255)
+  Event_Location String?   @db.VarChar(50)
+  Big_Event      String?   @db.VarChar(50)
+  Event_Weekday  String?   @db.VarChar(50)
+  Event_Type     String?   @db.VarChar(50)
+  Event_TypeCode String?   @db.VarChar(20)
+  Event_Type_ID  Int?
+  ShowInCalendar String?   @db.VarChar(255)
+  PersonInCharge String?   @db.VarChar(50)
+  PersonAdmin    String?   @db.VarChar(20)
+  Poster         String?   @db.VarChar(20)
+  StatHoliday    String?   @db.VarChar(3)
+  FlexTimeType   Int?      @db.SmallInt
+  FlexTimeLunch  Int?      @db.SmallInt
+  PersonOperate  String?   @db.VarChar(255)
+}
+
+model tMaster {
+  tMasterID      Int       @id @default(autoincrement())
+  MasterID       Int?
+  Company        String?   @db.VarChar(75)
+  Mr_Ms          String?   @db.VarChar(20)
+  DoB            DateTime? @db.DateTime(0)
+  Gender         String?   @db.VarChar(50)
+  Lname          String?   @db.VarChar(75)
+  Fname          String?   @db.VarChar(75)
+  Family         String?   @db.VarChar(50)
+  Title          String?   @db.VarChar(70)
+  Address        String?   @db.VarChar(100)
+  Address2       String?   @db.VarChar(100)
+  City           String?   @db.VarChar(50)
+  Prov           String?   @db.VarChar(20)
+  PostalCode     String?   @db.VarChar(20)
+  PhoneHome      String?   @db.VarChar(50)
+  Cell           String?   @db.VarChar(45)
+  Fax            String?   @db.VarChar(40)
+  Email          String?   @db.VarChar(75)
+  Email2         String?   @db.VarChar(75)
+  RenewalDate    DateTime? @db.DateTime(0)
+  Paid           Float?
+  Fees_waived    Boolean?  @map("Fees waived") @db.Bit(1)
+  Mail           String?   @db.VarChar(20)
+  AK             Boolean?  @db.Bit(1)
+  OoP            Boolean?  @db.Bit(1)
+  ChineseNews    Boolean?  @db.Bit(1)
+  Disability     String?   @db.VarChar(75)
+  HeardFrom      String?   @db.VarChar(50)
+  DateofReg      DateTime? @db.DateTime(0)
+  Year           Int?
+  VotingMbr      Boolean?  @db.Bit(1)
+  VotingMbr_Life Boolean?  @db.Bit(1)
+  Participant    Boolean?  @db.Bit(1)
+  Affiliate      Boolean?  @db.Bit(1)
+  Volunteer      Boolean?  @db.Bit(1)
+  Board          Boolean?  @db.Bit(1)
+  Staff          Boolean?  @db.Bit(1)
+  CSG            Boolean?  @db.Bit(1)
+  Status_Donor   Boolean?  @db.Bit(1)
+  Status_PP      Boolean?  @db.Bit(1)
+  Status_Member  Boolean?  @db.Bit(1)
+  Login          Boolean?  @db.Bit(1)
+  Agency         Boolean?  @db.Bit(1)
+  VolParty       Boolean?  @db.Bit(1)
+  Youth          Boolean?  @db.Bit(1)
+  FPSNC          Boolean?  @db.Bit(1)
+  ILRC           Boolean?  @db.Bit(1)
+  ILCanada       Boolean?  @db.Bit(1)
+  VIP            Boolean?  @db.Bit(1)
+  Councilor      Boolean?  @db.Bit(1)
+  MP             Boolean?  @db.Bit(1)
+  RCSAC          Boolean?  @db.Bit(1)
+  Spon           String?   @db.VarChar(50)
+  Media          Boolean?  @db.Bit(1)
+  ParticipantNo  String?   @db.VarChar(50)
+  VI             Boolean?  @db.Bit(1)
+  Notes          String?   @db.MediumText
+  ischeck        Boolean?  @db.Bit(1)
+  isrecycle      Boolean?  @db.Bit(1)
+  Photo          String?   @db.VarChar(50)
+  Marital        String?   @db.VarChar(50)
+}
+
+model tSignInDaily {
+  ID              Int       @id @default(autoincrement())
+  MemberID        Int?
+  SignInName      String?   @db.VarChar(255)
+  SignInDateTime  DateTime? @db.DateTime(0)
+  SignOutDateTime DateTime? @db.DateTime(0)
+  SignInStatus    String?   @db.VarChar(255)
+  SignInFromHome  Boolean?  @db.Bit(1)
+  SignInIP        String?   @db.VarChar(20)
+}
