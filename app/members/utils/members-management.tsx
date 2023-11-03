@@ -31,7 +31,7 @@ import React from "react";
 // }
 
 export async function fetchAllMembers(): Promise<PostProps[]> {
-  const prisma = new PrismaClient();
+  //const prisma = new PrismaClient();
 
   // const data = await fetch("http://localhost:3000/api/listAllMembers")
   //   .then((response) => response.json())
@@ -43,6 +43,8 @@ export async function fetchAllMembers(): Promise<PostProps[]> {
       StaffFName: true,
       StaffLName: true,
     },
+    take: 10,
+    orderBy: [{ ID: "desc" }],
   });
 
   return posts;
